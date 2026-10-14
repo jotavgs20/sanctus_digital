@@ -1,35 +1,51 @@
-# Ainda Há Vinho — nova versão
+# Ainda Há Vinho — Site para GitHub e Vercel
 
-Landing page com estética editorial noturna inspirada na referência: fundo azul-roxo profundo, luzes violetas, cards de conteúdo e capa do livro em destaque. Projetada para celular, tablet e desktop.
+Este diretório contém **o site completo** da Editora Sanctus, incluindo as imagens e as marcas oficiais que estavam faltando no deploy anterior.
 
-## Como abrir
+## Publicar no GitHub (recomendado)
 
-Extraia o ZIP e abra o arquivo `index.html` dentro da pasta `ainda-ha-vinho-nova-versao`. Para publicar, hospede **todos os arquivos e a pasta `assets`** juntos em uma hospedagem de sites estáticos. Não requer bibliotecas, instalação ou etapa de compilação.
+1. **Extraia o ZIP no computador.** Não envie o arquivo ZIP fechado para o GitHub, pois a Vercel não descompacta ZIPs do repositório.
+2. Abra o repositório `sanctus_digital`, na branch `main`, e escolha **Add file → Upload files**.
+3. Arraste **o conteúdo da pasta extraída** (os arquivos `index.html`, `styles.css`, `script.js`, `config.js` e a pasta `assets`) para a página do GitHub. Se o navegador não permitir arrastar a pasta, arraste os arquivos contidos nela, preservando a estrutura das subpastas.
+4. Faça o **Commit changes**. Se o repositório já contém esses arquivos, substitua-os pela versão entregue; a pasta `assets` é indispensável.
+5. Na Vercel, confira se o novo deploy da branch `main` foi concluído com sucesso. Recarregue `sanctusdigital.vercel.app` com Ctrl+Shift+R (ou Cmd+Shift+R no Mac).
 
-## Compra e preço
+### Alternativa — somente reparar as imagens
 
-O botão final de compra mantém o checkout já encontrado no site enviado:
-`https://pay.hotmart.com/B108028666X?checkoutMode=2`
+Se o site já publicado estiver correto e só as imagens estiverem faltando, use o arquivo separado `sanctus-apenas-imagens.zip`. Extraia-o e envie **somente a pasta `assets`** para a raiz do repositório. Não precisa modificar HTML/CSS/JS. As imagens só aparecerão se o HTML publicado apontar para os caminhos `assets/...`, como a versão fornecida.
 
-O valor não é exibido porque não foi fornecido. Em `config.js`, coloque o preço numérico em `price` e, se necessário, a observação real em `paymentNote`.
+## Estrutura esperada na raiz do repositório
 
-Se o endereço do checkout mudar, atualize **`checkoutUrl` em `config.js`** e também o link do botão final `data-checkout` no HTML. Assim a compra funciona também quando o JavaScript estiver desativado.
+```text
+index.html
+styles.css
+script.js
+config.js
+README.md
+assets/
+  favicon.svg
+  livro-capa-recortada.png
+  ebook-tablet.png
+  brand/
+    sanctus-simbolo-branco-otimizado.png
+    sanctus-nome-branco.png
+    sanctus-logo-branca-otimizada.png
+    ... outras variações oficiais da marca
+```
 
-## Capa e formato do produto
+**A pasta `assets` deve ficar AO LADO de `index.html`, não dentro de uma pasta extra nem presa em um ZIP.**
 
-Foi usada a imagem enviada com a nova capa do livro e retirado apenas o fundo da foto para aplicar na composição. O site original oferta um **e-book digital**: mantivemos esse formato, sem criar promessa de livro impresso, depoimentos, descontos, preços ou resultados garantidos. A capa 3D é ilustrativa.
+## Verificação rápida após publicar
 
-## Personalização
+Abra diretamente estas URLs. Cada uma deve exibir uma imagem, sem 404:
 
-- `index.html`: textos, seções e âncoras.
-- `styles.css`: cores, efeitos e visual responsivo.
-- `config.js`: checkout, preço e informação de pagamento.
-- `assets/livro-capa-recortada.png`: capa do livro destacada no hero e na oferta.
+- https://sanctusdigital.vercel.app/assets/livro-capa-recortada.png
+- https://sanctusdigital.vercel.app/assets/brand/sanctus-simbolo-branco-otimizado.png
+- https://sanctusdigital.vercel.app/assets/brand/sanctus-nome-branco.png
+- https://sanctusdigital.vercel.app/assets/ebook-tablet.png
 
-Os arquivos funcionam localmente e podem ser publicados em hospedagem estática. Antes de colocar no ar, confira checkout real, condições comerciais, dados legais obrigatórios e faça uma compra de teste.
+## Conteúdo e checkout
 
-## Identidade visual da Editora Sanctus
+Site responsivo e estático, sem compilação. O checkout configurado aponta para `https://pay.hotmart.com/B108028666X?checkoutMode=10` como na versão anterior. Confirme o link e condições de venda antes de divulgar. Preço omitido até ser configurado em `config.js`.
 
-As marcas oficiais enviadas foram incorporadas ao **cabeçalho** (símbolo e lettering originais), ao **rodapé** (logo completa branca) e ao **ícone do navegador** (símbolo vetorial sobre fundo escuro).
-
-Os **12 arquivos originais**, em versões branca, preta, PNG e SVG, permanecem inalterados em `assets/brand/` para uso futuro. Os arquivos com nomes terminados em `otimizada.png` e `sanctus-nome-branco.png` são derivados recortados apenas para retirar margens transparentes e melhorar o encaixe na página. Em futuras seções de fundo claro, é possível usar as versões pretas.
+As logos originais da Sanctus (PNG/SVG, branco/preto) foram preservadas em `assets/brand/`. As versões otimizadas são usadas na página.
