@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#1a0b29"/><svg x="11" y="6" width="42" height="52" viewBox="474 115 265 438"><g style="color:#ffffff" fill="#ffffff">
- <g transform="translate(0 0) scale(1)">
- <!-- sanctuary-inspired open halo: elevation and protection -->
- <ellipse cx="600" cy="147" rx="99" ry="20" fill="none" stroke="currentColor" stroke-width="10"/>
- <!-- custom sanctus S: full-bodied, tapering terminals -->
- <path d="M710 227 H571 C524 227 490 259 490 304 C490 349 516 372 563 386 L644 412 C665 419 678 434 678 453 C678 477 661 491 631 491 H492 V542 H632 C696 542 733 504 733 452 C733 406 706 380 655 365 L574 340 C552 333 542 322 542 303 C542 283 554 276 576 276 H710 Z" fill="currentColor"/>
-</g></g></svg></svg>
