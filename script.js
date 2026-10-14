@@ -25,6 +25,18 @@
   document.querySelectorAll('[data-checkout]').forEach((button) => {
     if (checkoutUrl) {
       button.href = checkoutUrl;
+      // O evento ocorre somente quando o visitante segue para a Hotmart.
+      // Purchase continua sendo responsabilidade da integração da Hotmart.
+      button.addEventListener('click', () => {
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'InitiateCheckout', {
+            content_name: 'Ainda Há Vinho',
+            content_category: 'E-book',
+            num_items: 1,
+            currency: 'BRL'
+          });
+        }
+      });
     } else {
       button.href = '#oferta';
       button.setAttribute('aria-disabled', 'true');
