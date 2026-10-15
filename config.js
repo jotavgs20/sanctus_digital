@@ -2,8 +2,8 @@
 window.EBOOK_CONFIG = {
   // Link da página de pagamento da Hotmart enviado por você.
   checkoutUrl: "https://pay.hotmart.com/B108028666X?checkoutMode=10",
-  // Preço numérico em reais. Exemplo: 29.90. null mantém o valor oculto.
-  price: null,
-  // Use apenas condições reais do checkout. Exemplo: "Pagamento à vista".
-  paymentNote: ""
+  // Preço atual do e-book em reais.
+  price: 39.90,
+  // Texto abaixo do preço, consistente com o checkout.
+  paymentNote: "Pagamento único · Acesso imediato no seu e-mail"
 };
