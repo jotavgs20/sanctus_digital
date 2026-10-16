@@ -1,6 +1,15 @@
 (() => {
   "use strict";
   const config = window.EBOOK_CONFIG || {};
+
+  // Microsoft Clarity: gravação de sessões e mapa de calor.
+  if (typeof config.clarityProjectId === 'string' && /^[a-z0-9]{6,20}$/i.test(config.clarityProjectId.trim())) {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', config.clarityProjectId.trim());
+  }
   const status = document.querySelector('[data-purchase-status]');
   let checkoutUrl = null;
   try {
@@ -28,6 +37,7 @@
       // O evento ocorre somente quando o visitante segue para a Hotmart.
       // Purchase continua sendo responsabilidade da integração da Hotmart.
       button.addEventListener('click', () => {
+        if (typeof window.clarity === 'function') window.clarity('event', 'IniciouCheckout');
         if (typeof window.fbq === 'function') {
           window.fbq('track', 'InitiateCheckout', {
             content_name: 'Ainda Há Vinho',

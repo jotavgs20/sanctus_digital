@@ -135,6 +135,7 @@
     popup.setAttribute('aria-hidden', 'false');
     btnYes.focus({ preventScroll: true });
     if (window.fbq) fbq('trackCustom', 'PopupFimPagina_Exibido');
+    if (window.clarity) clarity('event', 'PopupFimPagina_Exibido');
     window.removeEventListener('scroll', onScroll);
   }
 
@@ -152,6 +153,7 @@
 
   btnYes.addEventListener('click', function () {
     if (window.fbq) fbq('track', 'Contact');
+    if (window.clarity) clarity('event', 'PopupWhatsApp_Clicou');
     fechar();
   });
   popup.querySelectorAll('[data-sx-close]').forEach(function (el) { el.addEventListener('click', fechar); });
